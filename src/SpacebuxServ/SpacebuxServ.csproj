@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5FCA1E48-0751-4625-9532-CB804DF55DB5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpacebuxServ</RootNamespace>
+    <AssemblyName>SpacebuxServ</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\build\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="cp -f &quot;$(SolutionDir)/packages/Nancy.Viewengines.Razor.0.23.2/BuildProviders/Nancy.ViewEngines.Razor.BuildProviders.dll&quot; &quot;$(ProjectDir)/../../bin/Debug&quot;" />
+        <Command type="AfterBuild" command="cp -f &quot;$(SolutionDir)/packages/Nancy.Viewengines.Razor.0.23.2/lib/net40/Nancy.ViewEngines.Razor.dll&quot; &quot;$(ProjectDir)/../../bin/Debug&quot;" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Coinium.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SHA3">
+      <HintPath>..\..\build\packages\SHA3.0.9.2\lib\net40\SHA3.dll</HintPath>
+    </Reference>
+    <Reference Include="SHA3Managed">
+      <HintPath>..\..\build\packages\SHA3.0.9.2\lib\net40\SHA3Managed.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime, Version=4.0.0.0, Culture=neutral,    PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="AustinHarris.JsonRpc">
+      <HintPath>..\..\build\packages\AustinHarris.JsonRpc.1.0.4.18\lib\net40\AustinHarris.JsonRpc.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\..\build\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CryptSharp">
+      <HintPath>..\..\build\packages\CryptSharpOfficial.2.0.0.0\lib\CryptSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HashLib">
+      <HintPath>..\..\build\packages\HashLib.2.0.1\lib\net40\HashLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Metrics">
+      <HintPath>..\..\build\packages\Metrics.NET.0.1.10\lib\net45\Metrics.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy">
+      <HintPath>..\..\build\packages\Nancy.0.23.2\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.CustomErrors">
+      <HintPath>..\..\build\packages\Nancy.CustomErrors.1.0.6.0\lib\net40\Nancy.CustomErrors.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Self">
+      <HintPath>..\..\build\packages\Nancy.Hosting.Self.0.23.2\lib\net40\Nancy.Hosting.Self.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Metrics">
+      <HintPath>..\..\build\packages\NancyFx.Metrics.0.1.10\lib\net45\Nancy.Metrics.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\..\build\packages\Nancy.Viewengines.Razor.0.23.2\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\build\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\..\build\packages\Serilog.1.3.43\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.FullNetFx">
+      <HintPath>..\..\build\packages\Serilog.1.3.43\lib\net45\Serilog.FullNetFx.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\build\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="SHA3Net">
+      <HintPath>bin\SHA3Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blocks\BlockProcessor.cs" />
+    <Compile Include="Blocks\IBlockProcessor.cs" />
+    <Compile Include="Coin\Helpers\Hashrate.cs" />
+    <Compile Include="Configuration\IJsonConfigReader.cs" />
+    <Compile Include="Configuration\IStackConfig.cs" />
+    <Compile Include="Configuration\StackConfig.cs" />
+    <Compile Include="Cryptology\Algorithms\Blake.cs" />
+    <Compile Include="Cryptology\Algorithms\Fugue.cs" />
+    <Compile Include="Cryptology\Algorithms\Groestl.cs" />
+    <Compile Include="Cryptology\Algorithms\Keccak.cs" />
+    <Compile Include="Cryptology\Algorithms\M7.cs" />
+    <Compile Include="Cryptology\Algorithms\Sha256.cs" />
+    <Compile Include="Cryptology\Algorithms\SHA3.cs" />
+    <Compile Include="Cryptology\Algorithms\SHA3Managed.cs" />
+    <Compile Include="Cryptology\Algorithms\Shavite3.cs" />
+    <Compile Include="Cryptology\Algorithms\Skein.cs" />
+    <Compile Include="Cryptology\Algorithms\Whirlpool.cs" />
+    <Compile Include="Cryptology\Algorithms\X11.cs" />
+    <Compile Include="Cryptology\Algorithms\X13.cs" />
+    <Compile Include="Cryptology\Algorithms\X14.cs" />
+    <Compile Include="Cryptology\Algorithms\X15.cs" />
+    <Compile Include="Cryptology\Algorithms\X17.cs" />
+    <Compile Include="Factories\ConfigFactory.cs" />
+    <Compile Include="Factories\IConfigFactory.cs" />
+    <Compile Include="Factories\IObjectFactory.cs" />
+    <Compile Include="Factories\ObjectFactory.cs" />
+    <Compile Include="Banning\BanManager.cs" />
+    <Compile Include="Banning\IBanManager.cs" />
+    <Compile Include="Banning\BanConfig.cs" />
+    <Compile Include="Banning\IBanConfig.cs" />
+    <Compile Include="Jobs\Manager\IJobConfig.cs" />
+    <Compile Include="Metrics\IMetricsManager.cs" />
+    <Compile Include="Metrics\MetricsManager.cs" />
+    <Compile Include="Miners\IMetaConfig.cs" />
+    <Compile Include="Miners\IMinerConfig.cs" />
+    <Compile Include="Miners\MetaConfig.cs" />
+    <Compile Include="Miners\MinerSoftware.cs" />
+    <Compile Include="Payments\IRewardsConfig.cs" />
+    <Compile Include="Jobs\Manager\JobConfig.cs" />
+    <Compile Include="Miners\MinerConfig.cs" />
+    <Compile Include="Persistance\Blocks\PersistedBlock.cs" />
+    <Compile Include="Persistance\IStorageConfig.cs" />
+    <Compile Include="Payments\IWalletConfig.cs" />
+    <Compile Include="Payments\RewardsConfig.cs" />
+    <Compile Include="Payments\WalletConfig.cs" />
+    <Compile Include="Persistance\Redis\Redis.cs" />
+    <Compile Include="Server\Web\IBackendConfig.cs" />
+    <Compile Include="Server\Web\Models\CurrentRoundModel.cs" />
+    <Compile Include="Server\Web\Models\WorkersModel.cs" />
+    <Compile Include="Server\Web\Modules\BackendConfig.cs" />
+    <Compile Include="Server\Web\Modules\Donate.cs" />
+    <Compile Include="Server\Web\Models\IndexModel.cs" />
+    <Compile Include="Server\Web\Models\PoolModel.cs" />
+    <Compile Include="Statistics\BlockStats.cs" />
+    <Compile Include="Statistics\IBlockStats.cs" />
+    <Compile Include="Statistics\IJsonResponse.cs" />
+    <Compile Include="Statistics\ILatestBlocks.cs" />
+    <Compile Include="Statistics\IStatisticsConfig.cs" />
+    <Compile Include="Statistics\LatestBlocks.cs" />
+    <Compile Include="Statistics\Algorithms.cs" />
+    <Compile Include="Statistics\Global.cs" />
+    <Compile Include="Statistics\IAlgorithms.cs" />
+    <Compile Include="Daemon\DaemonErrorResponse.cs" />
+    <Compile Include="Daemon\Exceptions\RpcException.cs" />
+    <Compile Include="Daemon\IDaemonBase.cs" />
+    <Compile Include="Daemon\Responses\IBlockTemplate.cs" />
+    <Compile Include="Jobs\Tracker\IJobTracker.cs" />
+    <Compile Include="Jobs\Tracker\JobTracker.cs" />
+    <Compile Include="Miners\MinerEventArgs.cs" />
+    <Compile Include="Statistics\IGlobal.cs" />
+    <Compile Include="Statistics\IPerAlgorithm.cs" />
+    <Compile Include="Statistics\IPerPool.cs" />
+    <Compile Include="Statistics\IPools.cs" />
+    <Compile Include="Statistics\IStatistics.cs" />
+    <Compile Include="Statistics\IStatisticsProvider.cs" />
+    <Compile Include="Statistics\PerAlgorithm.cs" />
+    <Compile Include="Statistics\PerPool.cs" />
+    <Compile Include="Statistics\Pools.cs" />
+    <Compile Include="Statistics\Statistics.cs" />
+    <Compile Include="Shares\ShareEventArgs.cs" />
+    <Compile Include="Statistics\StatisticsConfig.cs" />
+    <Compile Include="Utils\EpDecimalConverter.cs" />
+    <Compile Include="Utils\EpUtil.cs" />
+    <Compile Include="Vardiff\IVardiffMiner.cs" />
+    <Compile Include="Vardiff\IVardiffConfig.cs" />
+    <Compile Include="Vardiff\IVardiffManager.cs" />
+    <Compile Include="Vardiff\VardiffConfig.cs" />
+    <Compile Include="Vardiff\VardiffManager.cs" />
+    <Compile Include="Server\Web\ErrorConfiguration.cs" />
+    <Compile Include="Server\Web\WebBootstrapper.cs" />
+    <Compile Include="Server\Web\RootPathProvider.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\ISocketServer.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\BannedConnectionEventArgs.cs" />
+    <Compile Include="Payments\IPaymentRound.cs" />
+    <Compile Include="Payments\IPaymentConfig.cs" />
+    <Compile Include="Payments\IPaymentProcessor.cs" />
+    <Compile Include="Payments\IWorkerBalance.cs" />
+    <Compile Include="Payments\PaymentRound.cs" />
+    <Compile Include="Payments\PaymentConfig.cs" />
+    <Compile Include="Payments\PaymentProcessor.cs" />
+    <Compile Include="Payments\WorkerBalance.cs" />
+    <Compile Include="Persistance\Blocks\BlockStatus.cs" />
+    <Compile Include="Persistance\Blocks\IPersistedBlock.cs" />
+    <Compile Include="Persistance\Redis\IRedisConfig.cs" />
+    <Compile Include="Persistance\Redis\RedisConfig.cs" />
+    <Compile Include="Repository\Registries\AlgorithmRegistry.cs" />
+    <Compile Include="Server\Mining\Vanilla\IVanillaMiner.cs" />
+    <Compile Include="Server\Web\IWebServer.cs" />
+    <Compile Include="Server\Mining\Stratum\IStratumMiner.cs" />
+    <Compile Include="Server\Web\IWebServerConfig.cs" />
+    <Compile Include="Server\Web\Modules\Api.cs" />
+    <Compile Include="Server\Web\Models\JsonError.cs" />
+    <Compile Include="Server\Web\Modules\Pool.cs" />
+    <Compile Include="Server\Web\WebServer.cs" />
+    <Compile Include="Server\Web\WebServerConfig.cs" />
+    <Compile Include="Configuration\ConfigManager.cs" />
+    <Compile Include="Configuration\IConfigManager.cs" />
+    <Compile Include="Utils\Extensions\StringExtensions.cs" />
+    <Compile Include="Cryptology\Merkle\IMerkleTree.cs" />
+    <Compile Include="Jobs\IJobCounter.cs" />
+    <Compile Include="Shares\IShare.cs" />
+    <Compile Include="Shares\Share.cs" />
+    <Compile Include="Shares\ShareError.cs" />
+    <Compile Include="Persistance\Redis\IRedis.cs" />
+    <Compile Include="Persistance\Storages.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\AuthenticationError.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\DuplicateShareError.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\IStratumError.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\JobNotFoundError.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\LowDifficultyShare.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\NotSubscriberError.cs" />
+    <Compile Include="Server\Mining\Stratum\Errors\OtherError.cs" />
+    <Compile Include="Jobs\IJob.cs" />
+    <Compile Include="Persistance\IStorage.cs" />
+    <Compile Include="Transactions\IGenerationTransaction.cs" />
+    <Compile Include="Transactions\IOutputs.cs" />
+    <Compile Include="Transactions\OutPoint.cs" />
+    <Compile Include="Transactions\Outputs.cs" />
+    <Compile Include="Transactions\Script\ISignatureScript.cs" />
+    <Compile Include="Transactions\Script\SignatureScript.cs" />
+    <Compile Include="Transactions\TxIn.cs" />
+    <Compile Include="Transactions\TxOut.cs" />
+    <Compile Include="Repository\Context\ApplicationContext.cs" />
+    <Compile Include="Configuration\JsonConfigReader.cs" />
+    <Compile Include="Utils\Helpers\Validation\Enforce.cs" />
+    <Compile Include="Server\Mining\Service\Services.cs" />
+    <Compile Include="Utils\Extensions\ArrayExtensions.cs" />
+    <Compile Include="Utils\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Utils\Helpers\Arrays\ArrayHelpers.cs" />
+    <Compile Include="Utils\Helpers\IO\FileHelpers.cs" />
+    <Compile Include="Utils\Helpers\Misc\Range.cs" />
+    <Compile Include="Utils\Helpers\Time\TimeHelpers.cs" />
+    <Compile Include="Utils\Buffers\IRingBuffer.cs" />
+    <Compile Include="Logging\ILogConfig.cs" />
+    <Compile Include="Logging\ILogTarget.cs" />
+    <Compile Include="Logging\ILogManager.cs" />
+    <Compile Include="Logging\LogConfig.cs" />
+    <Compile Include="Logging\LogTarget.cs" />
+    <Compile Include="Logging\LogManager.cs" />
+    <Compile Include="Utils\Platform\Frameworks.cs" />
+    <Compile Include="Utils\Platform\PlatformManager.cs" />
+    <Compile Include="Utils\Buffers\RingBuffer.cs" />
+    <Compile Include="Utils\Versions\VersionInfo.cs" />
+    <Compile Include="Cryptology\Algorithms\Algorithms.cs" />
+    <Compile Include="Cryptology\Algorithms\IHashAlgorithm.cs" />
+    <Compile Include="Cryptology\Algorithms\Scrypt.cs" />
+    <Compile Include="Coin\Address\Base58.cs" />
+    <Compile Include="Coin\Config\CoinConfig.cs" />
+    <Compile Include="Coin\Config\ICoinConfig.cs" />
+    <Compile Include="Daemon\Config\DaemonConfig.cs" />
+    <Compile Include="Daemon\IDaemonClient.cs" />
+    <Compile Include="Daemon\Config\IDaemonConfig.cs" />
+    <Compile Include="Coin\Coinbase\Serializers.cs" />
+    <Compile Include="Coin\Coinbase\Utils.cs" />
+    <Compile Include="Coin\Address\Exceptions\AddressFormatException.cs" />
+    <Compile Include="Coin\Address\Exceptions\InvalidWalletAddressException.cs" />
+    <Compile Include="Transactions\GenerationTransaction.cs" />
+    <Compile Include="Coin\Helpers\Amount.cs" />
+    <Compile Include="Repository\Bootstrapper.cs" />
+    <Compile Include="Configuration\IConfig.cs" />
+    <Compile Include="Repository\Registries\ClassRegistry.cs" />
+    <Compile Include="Repository\Registries\IRegistry.cs" />
+    <Compile Include="Repository\Registries\FactoryRegistry.cs" />
+    <Compile Include="Repository\Registries\ManagerRegistry.cs" />
+    <Compile Include="Repository\Registries\ServerRegistry.cs" />
+    <Compile Include="Cryptology\Hash.cs" />
+    <Compile Include="Utils\Commands\CommandAttributes.cs" />
+    <Compile Include="Utils\Commands\CommandGroup.cs" />
+    <Compile Include="Utils\Commands\CommandManager.cs" />
+    <Compile Include="Repository\Registries\Registry.cs" />
+    <Compile Include="Cryptology\Utils.cs" />
+    <Compile Include="Jobs\ExtraNonce.cs" />
+    <Compile Include="Jobs\IExtraNonce.cs" />
+    <Compile Include="Jobs\JobCounter.cs" />
+    <Compile Include="Miners\IMinerManager.cs" />
+    <Compile Include="Cryptology\Merkle\MerkleTree.cs" />
+    <Compile Include="Daemon\Responses\BlockTemplateTransaction.cs" />
+    <Compile Include="Jobs\Manager\IJobManager.cs" />
+    <Compile Include="Jobs\Manager\JobManager.cs" />
+    <Compile Include="Miners\MinerManager.cs" />
+    <Compile Include="Pools\IPool.cs" />
+    <Compile Include="Pools\Config\IPoolConfig.cs" />
+    <Compile Include="Pools\IPoolManager.cs" />
+    <Compile Include="Pools\Pool.cs" />
+    <Compile Include="Shares\IShareManager.cs" />
+    <Compile Include="Shares\ShareManager.cs" />
+    <Compile Include="Server\Mining\Service\IRpcService.cs" />
+    <Compile Include="Server\Mining\IMiningServer.cs" />
+    <Compile Include="Server\Mining\IMiningServerConfig.cs" />
+    <Compile Include="Server\Mining\Stratum\IStratumServerConfig.cs" />
+    <Compile Include="Server\Mining\Vanilla\IVanillaServerConfig.cs" />
+    <Compile Include="Server\Mining\Vanilla\VanillaMiner.cs" />
+    <Compile Include="Pools\Config\PoolConfig.cs" />
+    <Compile Include="Pools\PoolManager.cs" />
+    <Compile Include="Server\Mining\Vanilla\Service\HttpServiceContext.cs" />
+    <Compile Include="Server\Mining\Vanilla\VanillaServer.cs" />
+    <Compile Include="Server\Mining\Vanilla\VanillaServerConfig.cs" />
+    <Compile Include="Server\Mining\Vanilla\Service\VanillaService.cs" />
+    <Compile Include="Miners\IMiner.cs" />
+    <Compile Include="Server\Mining\Stratum\Service\SocketServiceContext.cs" />
+    <Compile Include="Server\Commands\Server.cs" />
+    <Compile Include="Server\Commands\Stats.cs" />
+    <Compile Include="Server\Commands\Uptime.cs" />
+    <Compile Include="Server\Commands\Version.cs" />
+    <Compile Include="Server\Mining\Stratum\StratumMiner.cs" />
+    <Compile Include="Server\Mining\Stratum\Service\StratumService.cs" />
+    <Compile Include="Daemon\Responses\Getwork.cs" />
+    <Compile Include="Repository\Context\IApplicationContext.cs" />
+    <Compile Include="Server\Mining\Vanilla\HttpServer.cs" />
+    <Compile Include="Server\IServer.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\ConnectionEventArgs.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\Connection.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\ConnectionDataEventArgs.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\IClient.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\IConnection.cs" />
+    <Compile Include="Jobs\Job.cs" />
+    <Compile Include="Server\Mining\Stratum\StratumServer.cs" />
+    <Compile Include="Utils\Extensions\JsonExtensions.cs" />
+    <Compile Include="Daemon\Requests\CreateRawTransaction.cs" />
+    <Compile Include="Daemon\Requests\CreateRawTransactionInput.cs" />
+    <Compile Include="Daemon\Requests\SignRawTransaction.cs" />
+    <Compile Include="Daemon\Requests\SignRawTransactionInput.cs" />
+    <Compile Include="Daemon\Responses\AddedNodeInfo.cs" />
+    <Compile Include="Daemon\Responses\Block.cs" />
+    <Compile Include="Daemon\Responses\BlockTemplate.cs" />
+    <Compile Include="Daemon\Responses\DecodedRawTransaction.cs" />
+    <Compile Include="Daemon\Responses\Info.cs" />
+    <Compile Include="Daemon\Responses\ListReceivedByAccountTransaction.cs" />
+    <Compile Include="Daemon\Responses\ListReceivedByAddressTransaction.cs" />
+    <Compile Include="Daemon\Responses\ListTransaction.cs" />
+    <Compile Include="Daemon\Responses\MiningInfo.cs" />
+    <Compile Include="Daemon\Responses\MultisigAddress.cs" />
+    <Compile Include="Daemon\Responses\NodeAddress.cs" />
+    <Compile Include="Daemon\Responses\PeerInfo.cs" />
+    <Compile Include="Daemon\Responses\SignedRawTransaction.cs" />
+    <Compile Include="Daemon\Responses\Transaction.cs" />
+    <Compile Include="Daemon\Responses\TransactionDetail.cs" />
+    <Compile Include="Daemon\Responses\TransactionSinceBlock.cs" />
+    <Compile Include="Daemon\Responses\TransactionsSinceBlock.cs" />
+    <Compile Include="Daemon\Responses\TxOutSetInfo.cs" />
+    <Compile Include="Daemon\Responses\UnspentTransaction.cs" />
+    <Compile Include="Daemon\Responses\ValidateAddress.cs" />
+    <Compile Include="Daemon\DaemonClient.cs" />
+    <Compile Include="Daemon\DaemonBase.cs" />
+    <Compile Include="Daemon\DaemonRequest.cs" />
+    <Compile Include="Daemon\DaemonResponse.cs" />
+    <Compile Include="Server\Mining\Stratum\Responses\SubscribeResponse.cs" />
+    <Compile Include="Server\Mining\Stratum\Sockets\SocketServer.cs" />
+    <Compile Include="Server\Web\Modules\Index.cs" />
+    <Compile Include="Server\Web\HttpServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ConsoleWindow.cs" />
+    <Compile Include="Transactions\Utils\TransactionUtils.cs" />
+    <Compile Include="Utils\Numerics\BigInteger.cs" />
+    <Compile Include="Utils\Numerics\BigRational.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="config\config-example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\pools\advanced-example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="web.config" />
+    <None Include="web\default\api.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\donate.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\error.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\bordered-pulled.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\core.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\fixed-width.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\font-awesome.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\icons.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\larger.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\list.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\mixins.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\path.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\rotated-flipped.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\spinning.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\stacked.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\less\variables.less">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\font-awesome.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_bordered-pulled.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_core.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_fixed-width.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_icons.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_larger.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_list.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_mixins.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_path.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_rotated-flipped.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_spinning.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_stacked.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\scss\_variables.scss">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\pool.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\round.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\workers.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\coins\cryptonite.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\pools\spacebux-pool.json" />
+    <None Include="config\pools\default.json" />
+    <None Include="config\pools\cryptonite-pool.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\pools\cryptonite-testnet.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\deps\csredis\CSRedis\CSRedis.csproj">
+      <Project>{D35E185E-A7E1-41E1-846C-21944F56074F}</Project>
+      <Name>CSRedis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\deps\gibbed.io\Gibbed.IO.csproj">
+      <Project>{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A}</Project>
+      <Name>Gibbed.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\deps\jsonconfig\JsonConfig\JsonConfig.csproj">
+      <Project>{10095092-E1E5-441F-9380-B6329F3CFEB4}</Project>
+      <Name>JsonConfig</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Server\Mining\Stratum\StratumServerConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Coinium.ico" />
+    <None Include="config\coins\spacebux.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\css\bootstrap.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\layout.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\images\coiniumserv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\css\font-awesome.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\css\font-awesome.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\font-awesome\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\bootstrap.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\bootstrap.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\chart-data-flot.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\excanvas.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\jquery.flot.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\jquery.flot.pie.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\jquery.flot.resize.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\flot\jquery.flot.tooltip.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\jquery-1.10.2.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\morris\chart-data-morris.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\tablesorter\jquery.tablesorter.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="web\default\js\tablesorter\tables.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rewards\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <CustomCommands>
+      <!-- Custom commands for mono -->
+      <CustomCommands>
+        <Command type="AfterBuild" command="cp -f &quot;$(SolutionDir)/packages/Nancy.Viewengines.Razor.0.23.2/BuildProviders/Nancy.ViewEngines.Razor.BuildProviders.dll&quot; &quot;$(ProjectDir)/../../bin/Debug&quot;" />
+        <Command type="AfterBuild" command="cp -f &quot;$(SolutionDir)/packages/Nancy.Viewengines.Razor.0.23.2/lib/net40/Nancy.ViewEngines.Razor.dll&quot; &quot;$(ProjectDir)/../../bin/Debug&quot;" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\lib\net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
+</Project>
