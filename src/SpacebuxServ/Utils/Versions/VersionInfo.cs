@@ -31,7 +31,7 @@ namespace SpacebuxServ.Utils.Versions
         /// <summary>
         /// Codename.
         /// </summary>
-        public const string CodeName = "Piri Reis";
+        public const string CodeName = "";
 
         /// <summary>
         /// Main assembly versions info.
@@ -41,7 +41,7 @@ namespace SpacebuxServ.Utils.Versions
             /// <summary>
             /// Main assemby version.
             /// </summary>
-            public const string Version = "0.1.2.*";
+            public const string Version = "0.0.1.*";
         }
     }
 }

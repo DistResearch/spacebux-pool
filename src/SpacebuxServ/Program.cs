@@ -71,7 +71,7 @@ namespace SpacebuxServ
 
             // print a version banner.
             _logger = Log.ForContext<Program>();
-            _logger.Information("CoiniumServ {0:l} {1:l} warming-up..", VersionInfo.CodeName, Assembly.GetAssembly(typeof(Program)).GetName().Version);
+            _logger.Information("SpacebuxServ {0:l} {1:l} warming-up..", VersionInfo.CodeName, Assembly.GetAssembly(typeof(Program)).GetName().Version);
             PlatformManager.PrintPlatformBanner();
 
             // initialize config manager.
